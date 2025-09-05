@@ -19,6 +19,33 @@ body {
     position: relative;
 }
 
+/* Frase en arco */
+.arc-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 600;
+}
+
+.arc-text {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+    transform: perspective(200px) rotateX(15deg);
+    border-radius: 50px 50px 0 0;
+    padding: 15px 30px;
+    background: transparent;
+    border: none;
+    max-width: 90%;
+    line-height: 1.2;
+}
+
 /* Corazón pixelado perfecto */
 .minecraft-heart {
     width: 220px;
@@ -416,6 +443,11 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .arc-text { 
+        font-size: 20px; 
+        padding: 12px 25px;
+        transform: perspective(150px) rotateX(12deg);
+    }
     .minecraft-heart {
         width: 180px;
         height: 164px;
@@ -462,6 +494,11 @@ body {
 }
 
 @media (max-width: 480px) {
+    .arc-text { 
+        font-size: 18px; 
+        padding: 10px 20px;
+        transform: perspective(120px) rotateX(10deg);
+    }
     .minecraft-heart {
         width: 150px;
         height: 136px;
