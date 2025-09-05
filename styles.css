@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #ffb6c1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+/* Corazón pixelado perfecto */
+.minecraft-heart {
+    width: 220px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 auto 30px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-pixel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Crear el corazón pixelado perfecto usando CSS puro */
+.heart-pixel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff0000;
+    clip-path: polygon(
+        /* Top flat edge */
+        0% 0%, 100% 0%,
+        0% 13.33%, 100% 13.33%,
+        /* Upper curves start */
+        6.25% 20%, 93.75% 20%,
+        12.5% 26.67%, 87.5% 26.67%,
+        18.75% 33.33%, 81.25% 33.33%,
+        25% 40%, 75% 40%,
+        31.25% 46.67%, 68.75% 46.67%,
+        37.5% 53.33%, 62.5% 53.33%,
+        43.75% 60%, 56.25% 60%,
+        /* Center narrowing */
+        50% 66.67%,
+        50% 73.33%,
+        50% 80%,
+        50% 86.67%,
+        50% 93.33%,
+        50% 100%
+    );
+    border: 2px solid #8B4513;
+    box-sizing: border-box;
+}
+
+/* Antorchas */
+.torch {
+    position: absolute;
+    width: 16px;
+    height: 24px;
+    background: linear-gradient(to bottom, #8b4513, #a0522d);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+}
+
+.torch::before {
+    content: '🔥';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    animation: torchFlicker 0.5s ease-in-out infinite alternate;
+}
+
+.torch-1 { top: -35px; left: 15px; }
+.torch-2 { top: -35px; right: 15px; }
+.torch-3 { bottom: -35px; left: 15px; }
+.torch-4 { bottom: -35px; right: 15px; }
+
+/* Panel de bóvida */
+.vault-panel {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border: 3px solid #e74c3c;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(231, 76, 60, 0.2);
+    display: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.vault-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+    animation: scanning 2s linear infinite;
+}
+
+.vault-header h2 {
+    color: #ecf0f1;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vault-header p {
+    color: #bdc3c7;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.password-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.password-input input {
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #e74c3c;
+    border-radius: 10px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    letter-spacing: 8px;
+    font-weight: bold;
+}
+
+.password-input input:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+}
+
+.password-input button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* Numpad */
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.numpad .key {
+    padding: 16px 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-weight: bold;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.15);
+}
+
+.numpad .key:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+.numpad .key.action {
+    background: #ffdfe6;
+    color: #c0392b;
+}
+
+.password-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Luces de la bóvida */
+.vault-lights {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e74c3c;
+    animation: lightPulse 1s ease-in-out infinite;
+}
+
+.light:nth-child(2) { animation-delay: 0.2s; }
+.light:nth-child(3) { animation-delay: 0.4s; }
+.light:nth-child(4) { animation-delay: 0.6s; }
+
+/* Carta de amor */
+.love-letter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.letter-content {
+    background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+    border: 3px solid #ff6b9d;
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.letter-text h1 {
+    color: #e74c3c;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.letter-text p {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    font-family: 'Georgia', serif;
+}
+
+.signature {
+    text-align: right !important;
+    font-style: italic;
+    font-weight: bold;
+    color: #e74c3c !important;
+    font-size: 20px !important;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #ff6b9d, #e74c3c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+/* Corazones flotantes */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-heart:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-heart:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+.floating-heart:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+.floating-heart:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+.floating-heart:nth-child(5) { top: 50%; left: 50%; animation-delay: 4s; }
+
+/* Animaciones */
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Emoji heart */
+.emoji-heart {
+    font-size: 140px;
+    line-height: 1;
+    display: inline-block;
+    will-change: transform;
+    filter: drop-shadow(0 8px 16px rgba(231, 76, 60, 0.45));
+}
+
+/* Antorchas rodeando el corazón */
+.torch {
+    position: absolute;
+    width: 18px;
+    height: 26px;
+    background: linear-gradient(to bottom, #8b4513, #a0522d);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+}
+
+.torch::before {
+    content: '🔥';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+}
+
+.torch-1 { top: -40px; left: 10px; }
+.torch-2 { top: -40px; right: 10px; }
+.torch-3 { bottom: -40px; left: 10px; }
+.torch-4 { bottom: -40px; right: 10px; }
+
+/* Flujo de emojis cayendo */
+.falling-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 500;
+}
+
+.falling-emoji {
+    position: absolute;
+    top: -50px;
+    animation: fallLinear var(--fall-duration, 10s) linear forwards;
+    opacity: 0.9;
+}
+
+.falling-emoji .pulse {
+    display: inline-block;
+    font-size: inherit;
+    animation: heartBeat 2.2s ease-in-out infinite;
+}
+
+@keyframes torchFlicker {
+    0% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes scanning {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes lightPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(-10px) rotate(240deg); }
+}
+
+@keyframes fallLinear {
+    0% { transform: translateY(-60px) translateX(0); opacity: 0; }
+    10% { opacity: 0.9; }
+    100% { transform: translateY(110vh) translateX(var(--drift, 0px)); opacity: 0.95; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .minecraft-heart {
+        width: 180px;
+        height: 164px;
+    }
+    
+    .torch {
+        width: 16px;
+        height: 24px;
+    }
+    
+    .torch::before {
+        font-size: 16px;
+        top: -12px;
+    }
+    
+    .vault-panel {
+        margin: 0 20px;
+        padding: 20px;
+    }
+    .password-input input {
+        font-size: 22px;
+        letter-spacing: 10px;
+    }
+    .numpad .key {
+        padding: 18px 0;
+        font-size: 22px;
+    }
+    
+    .letter-content {
+        margin: 20px;
+        padding: 25px;
+    }
+    
+    .letter-text h1 {
+        font-size: 24px;
+    }
+    
+    .letter-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .minecraft-heart {
+        width: 150px;
+        height: 136px;
+    }
+    
+    .torch {
+        width: 14px;
+        height: 22px;
+    }
+    
+    .torch::before {
+        font-size: 14px;
+        top: -10px;
+    }
+    
+    .vault-panel {
+        padding: 15px;
+    }
+    .password-input input {
+        font-size: 20px;
+        letter-spacing: 10px;
+    }
+    .numpad {
+        gap: 8px;
+    }
+    .numpad .key {
+        padding: 16px 0;
+        font-size: 20px;
+    }
+    
+    .vault-header h2 {
+        font-size: 20px;
+    }
+    
+    .password-input input {
+        font-size: 20px;
+        padding: 12px;
+    }
+    
+    .letter-content {
+        padding: 20px;
+    }
+    
+    .letter-text h1 {
+        font-size: 22px;
+    }
+    
+    .letter-text p {
+        font-size: 15px;
+    }
+}

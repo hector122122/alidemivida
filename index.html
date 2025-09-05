@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Corazón palpitante con emoji -->
+        <div class="minecraft-heart" id="heart">
+            <span class="emoji-heart" aria-label="Corazón">❤️</span>
+            <div class="torch torch-1"></div>
+            <div class="torch torch-2"></div>
+            <div class="torch torch-3"></div>
+            <div class="torch torch-4"></div>
+        </div>
+        
+        <!-- Panel de contraseña tipo bóvida -->
+        <div class="vault-panel" id="vaultPanel">
+            <div class="vault-header">
+                <h2>🔐 Bóveda del Amor</h2>
+                <p>Ingresa la clave de 4 dígitos</p>
+            </div>
+            <div class="password-input">
+                <input type="password" id="passwordInput" maxlength="4" placeholder="****" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code">
+                <button id="submitBtn">🔓 Abrir</button>
+                <div class="numpad" id="numpad">
+                    <button class="key" data-key="1">1</button>
+                    <button class="key" data-key="2">2</button>
+                    <button class="key" data-key="3">3</button>
+                    <button class="key" data-key="4">4</button>
+                    <button class="key" data-key="5">5</button>
+                    <button class="key" data-key="6">6</button>
+                    <button class="key" data-key="7">7</button>
+                    <button class="key" data-key="8">8</button>
+                    <button class="key" data-key="9">9</button>
+                    <button class="key action" data-action="clear">C</button>
+                    <button class="key" data-key="0">0</button>
+                    <button class="key action" data-action="back">⌫</button>
+                </div>
+            </div>
+            <div class="vault-lights">
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+            </div>
+        </div>
+        
+        <!-- Carta de amor -->
+        <div class="love-letter" id="loveLetter">
+            <div class="letter-content">
+                <div class="floating-hearts">
+                    <div class="floating-heart">❤️</div>
+                    <div class="floating-heart">💕</div>
+                    <div class="floating-heart">💖</div>
+                    <div class="floating-heart">💝</div>
+                    <div class="floating-heart">💗</div>
+                </div>
+                <div class="letter-text">
+                    <h1>Querida Allison,</h1>
+                    <p>Soy yo de nuevo; siento que me expreso mejor con letras que con palabras.</p>
+                    <p>Cada segundo contigo es perfecto. Quiero darte las gracias por estar siempre para mí.</p>
+                    <p>De verdad, para mí es simplemente perfecto el tiempo a tu lado. Gracias por estar siempre para mí. te amo mucho muñequita de mi vida</p>
+                    <p class="signature">Te amo con todo mi corazón ❤️❤️❤️</p>
+                </div>
+                <button class="close-btn" id="closeBtn">💝 Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contenedor para emojis cayendo -->
+    <div class="falling-container" id="fallingContainer"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
