@@ -33,10 +33,11 @@ body {
 .arc-text {
     font-family: 'Georgia', serif;
     font-size: 24px;
-    color: white;
+    color: #ffffff !important;
     font-weight: bold;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     text-align: center;
+    -webkit-transform: perspective(200px) rotateX(15deg);
     transform: perspective(200px) rotateX(15deg);
     border-radius: 50px 50px 0 0;
     padding: 15px 30px;
@@ -44,6 +45,8 @@ body {
     border: none;
     max-width: 90%;
     line-height: 1.2;
+    -webkit-text-fill-color: #ffffff;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.3);
 }
 
 /* Corazón pixelado perfecto */
@@ -446,7 +449,10 @@ body {
     .arc-text { 
         font-size: 20px; 
         padding: 12px 25px;
+        -webkit-transform: perspective(150px) rotateX(12deg);
         transform: perspective(150px) rotateX(12deg);
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff;
     }
     .minecraft-heart {
         width: 180px;
@@ -497,7 +503,10 @@ body {
     .arc-text { 
         font-size: 18px; 
         padding: 10px 20px;
+        -webkit-transform: perspective(120px) rotateX(10deg);
         transform: perspective(120px) rotateX(10deg);
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff;
     }
     .minecraft-heart {
         width: 150px;
