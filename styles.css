@@ -256,9 +256,10 @@ body {
     color: #e74c3c;
     margin-bottom: 25px;
     font-size: 28px;
-    text-align: center;
+    text-align: left;
     font-family: 'Georgia', serif;
-    padding-right: 120px; /* Evita superposición con el botón cerrar */
+    padding-right: 150px; /* Evita superposición con el botón cerrar */
+    padding-left: 6px;
 }
 
 .letter-text p {
@@ -267,6 +268,9 @@ body {
     font-size: 18px;
     line-height: 1.6;
     text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
     font-family: 'Georgia', serif;
 }
 
@@ -447,7 +451,9 @@ body {
     
     .letter-text h1 {
         font-size: 24px;
-        padding-right: 110px;
+        text-align: left;
+        padding-right: 130px;
+        padding-left: 4px;
     }
     
     .letter-text p {
@@ -508,7 +514,9 @@ body {
     
     .letter-text h1 {
         font-size: 22px;
-        padding-right: 90px;
+        text-align: left;
+        padding-right: 110px;
+        padding-left: 2px;
     }
     
     .letter-text p {
