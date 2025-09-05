@@ -258,6 +258,7 @@ body {
     font-size: 28px;
     text-align: center;
     font-family: 'Georgia', serif;
+    padding-right: 120px; /* Evita superposición con el botón cerrar */
 }
 
 .letter-text p {
@@ -279,8 +280,8 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
     background: linear-gradient(45deg, #ff6b9d, #e74c3c);
     color: white;
     border: none;
@@ -446,6 +447,7 @@ body {
     
     .letter-text h1 {
         font-size: 24px;
+        padding-right: 110px;
     }
     
     .letter-text p {
@@ -496,9 +498,17 @@ body {
     .letter-content {
         padding: 20px;
     }
+    .close-btn {
+        top: 12px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 14px;
+        border-radius: 16px;
+    }
     
     .letter-text h1 {
         font-size: 22px;
+        padding-right: 90px;
     }
     
     .letter-text p {
